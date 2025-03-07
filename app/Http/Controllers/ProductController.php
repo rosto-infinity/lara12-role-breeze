@@ -13,7 +13,12 @@ class ProductController extends Controller
         $total = Product::count();
         return view('admin.product.home', compact(['products', 'total']));
     }
- 
+    public function home ()
+    {
+        // Logique pour récupérer les produits
+        $products = Product::all(); // Ou utilisez paginate() si nécessaire
+        return view('welcome', compact('products'));
+    }
     public function create()
     {
         return view('admin.product.create');
